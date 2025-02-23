@@ -15,7 +15,6 @@
 ## 🚀 Features
 
 - 📥 Download videos, music, and more from multiple sources  
-- ⚡ High-speed and efficient media fetching  
 - 🎯 Easy-to-use interface with powerful options  
 - 🔗 Supports a wide range of websites  
 
