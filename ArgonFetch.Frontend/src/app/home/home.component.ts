@@ -8,7 +8,6 @@ import { faLink, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { DefaultService, MusicInformation, PlaylistInformation } from '../../../api';
 import { PlaylistContainerComponent } from '../content-results/playlist-container/playlist-container.component';
 import { SingleSongContainerComponent } from '../content-results/single-song-container/single-song-container.component';
-import { DefaultService } from '../../../api';
 
 @Component({
   selector: 'app-home',
