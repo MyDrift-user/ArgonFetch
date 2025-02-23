@@ -8,7 +8,7 @@ import { faLink, faDownload } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   standalone: true,
   imports: [FormsModule, CommonModule, FontAwesomeModule]
 })
