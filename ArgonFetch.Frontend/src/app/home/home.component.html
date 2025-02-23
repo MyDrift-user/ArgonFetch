@@ -1,0 +1,44 @@
+<main class="main-content">
+  <div class="hero">
+    <h1>ArgonFetch</h1>
+    <p class="subtitle">Universal Media Downloader</p>
+    
+    <div class="download-box">
+      <div class="url-input-wrapper">
+        <svg class="url-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <input 
+          type="text" 
+          placeholder="Enter URL to download..."
+          [(ngModel)]="url"
+        >
+        <button 
+          *ngIf="url" 
+          class="clear-btn" 
+          (click)="url = ''"
+          aria-label="Clear input"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <button class="download-btn" (click)="download()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download
+      </button>
+    </div>
+
+    <div class="disclaimer-content">
+      <fa-icon [icon]="faWarning"></fa-icon>
+      <p>Please ensure you have the right to download and use the content. Respect copyright laws and platform terms of service.</p>
+    </div>
+  </div>
+</main> 

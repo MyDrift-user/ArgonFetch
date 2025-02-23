@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ArgonFetch.Frontend": {
+    "ArgonFetch.Frontend2": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/argon-fetch.frontend",
+            "outputPath": "dist/argon-fetch.frontend2",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -46,8 +46,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all"
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ArgonFetch.Frontend:build:production"
+              "buildTarget": "ArgonFetch.Frontend2:build:production"
             },
             "development": {
-              "buildTarget": "ArgonFetch.Frontend:build:development"
+              "buildTarget": "ArgonFetch.Frontend2:build:development"
             }
           },
           "defaultConfiguration": "development"
