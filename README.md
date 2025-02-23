@@ -32,17 +32,15 @@
 
 ```sh
 # Clone the repository
-git clone https://github.com/yourusername/ArgonFetch.git
+git clone https://github.com/Pianonic/ArgonFetch.git
 
 # Navigate to the project directory
 cd ArgonFetch
 
-# Install dependencies
-npm install
-
-# Run the application
-npm start
+# Run the application using Docker Compose
+docker-compose up -d
 ```
+After running the command, ArgonFetch should be accessible at http://localhost:8000.
 
 ## 🛠️ Usage
 
@@ -51,9 +49,9 @@ Choose your preferred format and quality, then start downloading!
 
 ## 📜 License
 
-This project is licensed under the MIT License.  
+This project is licensed under the GPL-3.0 License.  
 See the [LICENSE](LICENSE) file for more details.
 
 ---
 
-<p align="center">Made with ❤️ by <a href="https://github.com/yourusername">Your Name</a></p>
+<p align="center">Made with ❤️ by <a href="https://github.com/Pianonic">PianoNic</a> and <a href="https://github.com/MyDrift-user">MyDrift</a></p>
