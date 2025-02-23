@@ -20,7 +20,7 @@ import {
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css'],
+  styleUrls: ['./about.component.scss'],
   standalone: true,
   imports: [CommonModule, FontAwesomeModule]
 })
