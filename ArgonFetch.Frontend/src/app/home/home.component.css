@@ -109,7 +109,7 @@ input:focus {
   border: none;
   border-radius: 4px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
   white-space: nowrap;
 }

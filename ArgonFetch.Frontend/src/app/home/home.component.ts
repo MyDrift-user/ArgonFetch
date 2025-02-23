@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faLink, faDownload } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,9 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
   imports: [FormsModule, CommonModule, FontAwesomeModule]
 })
 export class HomeComponent {
+  faLink = faLink;
+  faDownload = faDownload;
+  
   url: string = '';
   faWarning = faTriangleExclamation;
 
