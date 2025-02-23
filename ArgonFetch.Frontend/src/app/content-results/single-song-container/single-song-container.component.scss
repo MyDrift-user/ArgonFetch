@@ -1,62 +1,120 @@
-.song-details {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.song-container {
   background: var(--surface);
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
+  max-width: 500px;
   width: 100%;
   margin: 16px auto;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
-.song-cover {
+.song-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.song-thumbnail {
   width: 80px;
   height: 80px;
   border-radius: 6px;
-  object-fit: cover;
+  overflow: hidden;
+  flex-shrink: 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .song-info {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  flex: 1;
+  align-items: flex-start;
+  padding-right: 48px;
 }
 
-.song-info h2 {
+.title-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.song-title {
+  margin: 0;
   font-size: 1.5rem;
   color: var(--primary);
-  margin: 0;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.author {
+.song-artist {
+  margin: 4px 0 0;
   font-size: 1rem;
   color: var(--text);
   opacity: 0.8;
-  margin: 4px 0;
 }
 
-.music-details {
+.song-details {
   margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-tertiary, #888);
 }
 
-.download-link {
+.song-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.action-button {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--text);
+  border-radius: 50%;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  &.download-button {
+    color: var(--primary);
+    
+    &:hover {
+      background: var(--primary);
+      color: var(--surface);
+    }
+  }
 }
 
-.download-link fa-icon {
-  font-size: 1.2rem;
-}
-
+.download-link,
+.download-link fa-icon,
 .download-link:hover {
-  text-decoration: underline;
+  display: none;
+}
+
+.action-button.download-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }

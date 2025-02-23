@@ -1,23 +1,34 @@
-<div class="playlist-details">
-    <img [src]="playlistInfo.image_url" alt="Playlist Cover" class="playlist-cover">
-    <div class="playlist-info">
-        <h2>{{ playlistInfo.playlist_name }}</h2>
-        <p class="author">By {{ playlistInfo.author }}</p>
-
-        <div class="songs-list">
-            <h3>Songs</h3>
-            <ul>
-                <li *ngFor="let song of playlistInfo.songs" class="song-item">
-                    <img [src]="song.image_url" alt="Song Cover" class="song-cover">
-                    <div class="song-info">
-                        <p class="song-name">{{ song.song_name }}</p>
-                        <p class="song-author">{{ song.author }}</p>
-                    </div>
-                    <a [href]="song.streaming_url" class="download-link">
-                        <fa-icon [icon]="faDownload"></fa-icon>
-                    </a>
-                </li>
-            </ul>
+<div class="playlist-container">
+  <div class="playlist-header">
+    <div class="playlist-content">
+      <div class="playlist-thumbnail">
+        <img [src]="playlistInfo.image_url" alt="Playlist Cover">
+      </div>
+      
+      <div class="playlist-info">
+        <div class="title-row">
+          <h3 class="playlist-title">{{ playlistInfo.playlist_name }}</h3>
+          <button class="action-button download-button" (click)="onDownload()">
+            <fa-icon [icon]="faDownload"></fa-icon>
+          </button>
         </div>
+        <p class="playlist-author">By {{ playlistInfo.author }}</p>
+      </div>
     </div>
+  </div>
+
+  <div class="songs-list">
+    <ul>
+      <li *ngFor="let song of playlistInfo.songs" class="song-item">
+        <img [src]="song.image_url" alt="Song Cover" class="song-cover">
+        <div class="song-info">
+          <p class="song-name">{{ song.song_name }}</p>
+          <p class="song-author">{{ song.author }}</p>
+        </div>
+        <button class="action-button download-button">
+          <fa-icon [icon]="faDownload"></fa-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
 </div>

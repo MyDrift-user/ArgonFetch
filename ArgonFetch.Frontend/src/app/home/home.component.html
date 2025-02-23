@@ -17,11 +17,12 @@
           (click)="url = ''"
           aria-label="Clear input"
         >
+          <fa-icon [icon]="faTimes"></fa-icon>
         </button>
       </div>
-      <button class="download-btn" (click)="download()">
-        <fa-icon [icon]="faDownload"></fa-icon>
-        Download
+      <button class="search-btn" (click)="download()">
+        <fa-icon [icon]="faSearch"></fa-icon>
+        Search
       </button>
     </div>
 

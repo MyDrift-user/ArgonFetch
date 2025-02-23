@@ -99,7 +99,7 @@ input:focus {
   border-color: var(--primary);
 }
 
-.download-btn {
+.search-btn {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -114,7 +114,7 @@ input:focus {
   white-space: nowrap;
 }
 
-.download-btn:hover {
+.search-btn:hover {
   opacity: 0.9;
 }
 
@@ -144,8 +144,17 @@ input:focus {
   line-height: 1.4;
 }
 
-.content-container{
+.content-container {
   width: 100%;
+}
+
+.search-clear {
+  color: var(--text);
+  opacity: 0.7;
+  
+  &:hover {
+    opacity: 1;
+  }
 }
 
 /* ... rest of the styles from app.component.css ... */ 

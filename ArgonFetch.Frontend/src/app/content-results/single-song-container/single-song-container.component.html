@@ -1,10 +1,17 @@
-<div class="song-details">
-    <img [src]="musicInfo.image_url" alt="Song Cover" class="song-cover">
-    <div class="song-info">
-        <h2>{{ musicInfo.song_name }}</h2>
-        <p class="author">{{ musicInfo.author }}</p>
+<div class="song-container">
+  <div class="song-content">
+    <div class="song-thumbnail">
+      <img [src]="musicInfo.image_url" alt="Song Cover">
     </div>
-    <a [href]="musicInfo.streaming_url" class="download-link">
-        <fa-icon [icon]="faDownload"></fa-icon>
-    </a>
+    
+    <div class="song-info">
+      <div class="title-row">
+        <h3 class="song-title">{{ musicInfo.song_name }}</h3>
+        <button class="action-button download-button" (click)="onDownload()">
+          <fa-icon [icon]="faDownload"></fa-icon>
+        </button>
+      </div>
+      <p class="song-artist">{{ musicInfo.author }}</p>
+    </div>
+  </div>
 </div>
