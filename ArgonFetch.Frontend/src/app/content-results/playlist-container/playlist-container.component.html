@@ -1,0 +1,23 @@
+<div class="playlist-details">
+    <img [src]="playlistInfo.image_url" alt="Playlist Cover" class="playlist-cover">
+    <div class="playlist-info">
+        <h2>{{ playlistInfo.playlist_name }}</h2>
+        <p class="author">By {{ playlistInfo.author }}</p>
+
+        <div class="songs-list">
+            <h3>Songs</h3>
+            <ul>
+                <li *ngFor="let song of playlistInfo.songs" class="song-item">
+                    <img [src]="song.image_url" alt="Song Cover" class="song-cover">
+                    <div class="song-info">
+                        <p class="song-name">{{ song.song_name }}</p>
+                        <p class="song-author">{{ song.author }}</p>
+                    </div>
+                    <a [href]="song.streaming_url" class="download-link">
+                        <fa-icon [icon]="faDownload"></fa-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
