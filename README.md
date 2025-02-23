@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <strong>Yet Another Media Downloader.</strong>  
+  <strong>ArgonFetch is Yet Another Media Downloader.</strong>  
   A powerful tool for downloading videos, music, and other media from various online sources.
 </p>
 
