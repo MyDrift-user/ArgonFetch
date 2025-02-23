@@ -1,0 +1,9 @@
+fastapi
+requests
+uvicorn
+pytube
+yt_dlp
+beautifulsoup4
+spotdl
+ytmusicapi
+python-dotenv
