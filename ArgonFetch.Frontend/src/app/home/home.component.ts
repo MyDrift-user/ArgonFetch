@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { faLink, faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faLink, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { DefaultService, MusicInformation, PlaylistInformation } from '../../../api';
 import { PlaylistContainerComponent } from '../content-results/playlist-container/playlist-container.component';
 import { SingleSongContainerComponent } from '../content-results/single-song-container/single-song-container.component';
@@ -24,7 +24,8 @@ import { SingleSongContainerComponent } from '../content-results/single-song-con
 })
 export class HomeComponent {
   faLink = faLink;
-  faDownload = faDownload;
+  faSearch = faSearch;
+  faTimes = faTimes;
   
   url: string = '';
   faWarning = faTriangleExclamation;
