@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 from enums.audio_content_type import ContentType
@@ -7,6 +8,15 @@ from models.playlist_information import PlaylistInformation
 from platform_handlers import content_type_identifyer, music_fetcher, platform_identifyer
 
 app = FastAPI(title="ArgonFetch API", version="0.0.1")
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to ["http://localhost:4200"] for more security
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 
 @app.get("/api/identify/is-song", response_model=bool)
 async def identify_content(url: str):
@@ -22,7 +32,7 @@ async def identify_content(url: str):
     return ContentType.is_song(content_type)
 
 @app.get("/api/fetch/song", response_model=MusicInformation)
-async def get_link_info(url: str):
+async def get_song_info(url: str):
     if not url:
         raise HTTPException(status_code=400, detail="URL is required")
 
@@ -38,7 +48,7 @@ async def get_link_info(url: str):
     return await music_fetcher.fetch_song(url)
 
 @app.get("/api/fetch/playlist", response_model=PlaylistInformation)
-async def get_link_info(url: str):
+async def get_playlist_info(url: str):
     if not url:
         raise HTTPException(status_code=400, detail="URL is required")
     
@@ -54,20 +64,18 @@ async def get_link_info(url: str):
     return await music_fetcher.fetch_playlist(url)
 
 @app.get("/api/download/song", response_model=MusicInformation)
-async def get_link_info(url: str):
-
+async def download_song(url: str):
     if not url:
         raise HTTPException(status_code=400, detail="URL is required")
     
     return await music_fetcher.fetch_song(url)
 
-@app.get("/api/download/playlist", response_model=MusicInformation)
-async def get_link_info(url: str):
-
+@app.get("/api/download/playlist", response_model=PlaylistInformation)
+async def download_playlist(url: str):
     if not url:
         raise HTTPException(status_code=400, detail="URL is required")
     
-    return await music_fetcher.fetch_song(url)
+    return await music_fetcher.fetch_playlist(url)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=8000)
