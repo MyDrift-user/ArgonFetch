@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'ArgonFetch.Frontend' title`, () => {
+  it(`should have the 'ArgonFetch.Frontend2' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ArgonFetch.Frontend');
+    expect(app.title).toEqual('ArgonFetch.Frontend2');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ArgonFetch.Frontend');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ArgonFetch.Frontend2');
   });
 });

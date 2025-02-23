@@ -1,0 +1,257 @@
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text);
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset default margins */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Layout */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  margin: 0;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.nav-logo, .nav-link, .theme-toggle, .github-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-logo {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: var(--font-family-title);
+  letter-spacing: 0.5px;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+}
+
+.github-link {
+  color: var(--text);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.github-link:hover {
+  opacity: 1;
+}
+
+/* Main Content */
+.main-content {
+  width: 100%;
+  min-height: calc(100vh - 48px);
+  margin: 0;
+  padding-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background);
+}
+
+.hero {
+  width: 100%;
+  padding: 60px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.7;
+  margin: 0.75rem 0 2.5rem;
+}
+
+/* Download Box */
+.download-box {
+  display: flex;
+  gap: 8px;
+  width: calc(100% - 32px);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.url-input-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.url-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text);
+  opacity: 0.5;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text);
+  opacity: 0.5;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.clear-btn:hover {
+  opacity: 0.8;
+  background: var(--border);
+}
+
+input {
+  width: 100%;
+  padding: 10px 34px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+
+/* Rating Section */
+.rating-section {
+  width: 100%;
+  padding: 40px 16px;
+  text-align: center;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  margin: 0;
+  margin-top: auto;
+}
+
+.rating-section p {
+  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+  opacity: 0.7;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.star {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.5;
+}
+
+.star:hover, .star.active {
+  color: var(--primary);
+  opacity: 1;
+} 
