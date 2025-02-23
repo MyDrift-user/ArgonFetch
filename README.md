@@ -20,11 +20,11 @@
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e59bd784-61c5-4d54-afc4-bbcb37c16357" width="600" alt="ArgonFetch Screenshot">
+  <img src="https://github.com/user-attachments/assets/2b081577-2c69-49d0-8329-8228eec1a9d2" width="1000" alt="ArgonFetch Screenshot">
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/99bc388a-794e-4836-a671-14639d9cec62" width="600" alt="ArgonFetch Screenshot 2">
+  <img src="https://github.com/user-attachments/assets/1b67e9bd-da55-40cc-941f-eeb828e874e8" width="1000" alt="ArgonFetch Screenshot 2">
 </p>
 
 ## 📦 Installation
