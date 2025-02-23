@@ -25,6 +25,13 @@
       </button>
     </div>
 
+    <div class="content-container" *ngIf="songContent">
+      <app-single-song-container [musicInfo]="songContent"></app-single-song-container>
+    </div>
+    <div class="content-container" *ngIf="playlistContent">
+      <app-playlist-container [playlistInfo]="playlistContent"></app-playlist-container>
+    </div>
+
     <div class="disclaimer-content">
       <fa-icon [icon]="faWarning"></fa-icon>
       <p>Please ensure you have the right to download and use the content. Respect copyright laws and platform terms of service.</p>

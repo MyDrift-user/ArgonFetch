@@ -1,0 +1,10 @@
+<div class="song-details">
+    <img [src]="musicInfo.image_url" alt="Song Cover" class="song-cover">
+    <div class="song-info">
+        <h2>{{ musicInfo.song_name }}</h2>
+        <p class="author">{{ musicInfo.author }}</p>
+    </div>
+    <a [href]="musicInfo.streaming_url" class="download-link">
+        <fa-icon [icon]="faDownload"></fa-icon>
+    </a>
+</div>

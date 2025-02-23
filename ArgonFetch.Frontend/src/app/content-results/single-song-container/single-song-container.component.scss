@@ -1,0 +1,62 @@
+.song-details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 100%;
+  margin: 16px auto;
+}
+
+.song-cover {
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex: 1;
+}
+
+.song-info h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.author {
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin: 4px 0;
+}
+
+.music-details {
+  margin-top: 8px;
+}
+
+.download-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.download-link fa-icon {
+  font-size: 1.2rem;
+}
+
+.download-link:hover {
+  text-decoration: underline;
+}
