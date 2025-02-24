@@ -78,4 +78,4 @@ async def download_playlist(url: str):
     return await music_fetcher.fetch_playlist(url)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=8000)
+    uvicorn.run(app, host="localhost", port=8000) 
