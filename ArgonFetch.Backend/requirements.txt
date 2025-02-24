@@ -7,3 +7,5 @@ beautifulsoup4
 spotdl
 ytmusicapi
 python-dotenv
+aiohttp
+aiofiles

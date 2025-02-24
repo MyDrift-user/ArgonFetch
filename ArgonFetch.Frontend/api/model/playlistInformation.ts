@@ -14,6 +14,7 @@ export interface PlaylistInformation {
     playlist_name: string;
     author: string;
     image_url: string;
+    playlist_url: string;
     songs: Array<MusicInformation>;
 }
 

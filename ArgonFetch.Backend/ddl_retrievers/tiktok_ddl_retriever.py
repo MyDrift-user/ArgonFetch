@@ -29,6 +29,6 @@ async def get_streaming_url(downloadURL):
         image_url = soup.find('img')['src']
         download_links = soup.find_all('a', href=True)
         download_link = download_links[0]['href']
-        return MusicInformation(streaming_url=download_link, song_name=title, author=author, image_url=image_url)
+        return MusicInformation(streaming_url=download_link, song_name=title, author=author, image_url=image_url, song_url=downloadURL)
     else:
         return Exception("Error:", response.status_code)

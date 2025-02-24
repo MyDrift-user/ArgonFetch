@@ -11,6 +11,7 @@
 
 export interface MusicInformation { 
     streaming_url: string;
+    song_url: string;
     song_name: string;
     author: string;
     image_url: string;
