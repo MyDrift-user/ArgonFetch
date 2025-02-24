@@ -86,7 +86,7 @@ async def fetch_playlist(query: str) -> PlaylistInformation:
             content = sp.playlist(content_id)
             songs = [
                 MusicInformation(
-                    streaming_url=item['track']['external_urls']['spotify'],
+                    song_url=item['track']['external_urls']['spotify'],
                     song_name=item['track']['name'],
                     author=', '.join([artist['name'] for artist in item['track']['artists']]),
                     image_url=item['track']['album']['images'][0]['url'] if item['track']['album']['images'] else ''
@@ -94,6 +94,7 @@ async def fetch_playlist(query: str) -> PlaylistInformation:
                 for item in content['tracks']['items']
             ]
             return PlaylistInformation(
+                playlist_url=query,
                 playlist_name=content['name'],
                 author=content['owner']['display_name'],
                 image_url=content['images'][0]['url'] if content['images'] else '',
@@ -104,7 +105,7 @@ async def fetch_playlist(query: str) -> PlaylistInformation:
             content = sp.album(content_id)
             songs = [
                 MusicInformation(
-                    streaming_url=track['external_urls']['spotify'],
+                    song_url=track['external_urls']['spotify'],
                     song_name=track['name'],
                     author=', '.join([artist['name'] for artist in track['artists']]),
                     image_url=content['images'][0]['url'] if content['images'] else ''
@@ -112,6 +113,7 @@ async def fetch_playlist(query: str) -> PlaylistInformation:
                 for track in content['tracks']['items']
             ]
             return PlaylistInformation(
+                playlist_url=query,
                 playlist_name=content['name'],
                 author=', '.join([artist['name'] for artist in content['artists']]),
                 image_url=content['images'][0]['url'] if content['images'] else '',
@@ -133,20 +135,21 @@ async def fetch_playlist(query: str) -> PlaylistInformation:
             if 'entries' in playlist_info:
                 for entry in playlist_info['entries']:
                     songs.append(MusicInformation(
-                        streaming_url=entry['url'],
+                        song_url=entry['url'],
                         song_name=entry.get('title', 'Unknown'),
                         author=entry.get('uploader', 'Unknown'),
                         image_url=entry.get('thumbnail', '')
                     ))
             else:
                 songs = [MusicInformation(
-                    streaming_url=playlist_info['url'],
+                    song_url=playlist_info['url'],
                     song_name=playlist_info.get('title', 'Unknown'),
                     author=playlist_info.get('uploader', 'Unknown'),
                     image_url=playlist_info.get('thumbnail', '')
                 )]
             
             return PlaylistInformation(
+                playlist_url=query,
                 playlist_name=playlist_info.get('title', 'Unknown Playlist'),
                 author=playlist_info.get('uploader', 'Unknown'),
                 image_url=playlist_info.get('thumbnail', ''),

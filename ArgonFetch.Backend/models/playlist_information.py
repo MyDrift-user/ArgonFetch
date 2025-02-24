@@ -7,4 +7,5 @@ class PlaylistInformation:
     playlist_name: str
     author: str
     image_url: str
+    playlist_url: str
     songs: List[MusicInformation]

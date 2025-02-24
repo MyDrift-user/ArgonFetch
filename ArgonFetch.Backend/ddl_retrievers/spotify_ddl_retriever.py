@@ -31,4 +31,4 @@ async def get_streaming_url(spotify_url) -> MusicInformation:
         except:
             thumbnail_url = info_dict.get('thumbnail', '')
 
-    return MusicInformation(streaming_url=track_link, song_name=track_name, author=track_author, image_url=thumbnail_url)
+    return MusicInformation(streaming_url=track_link, song_name=track_name, author=track_author, image_url=thumbnail_url, song_url=spotify_url)
