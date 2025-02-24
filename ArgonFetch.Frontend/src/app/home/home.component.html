@@ -1,41 +1,37 @@
 <main class="main-content">
+  <div class="when-content-arrives-spacing" *ngIf="songContent || playlistContent || isLoading"></div>
   <div class="hero">
     <h1>ArgonFetch</h1>
     <p class="subtitle">Universal Media Downloader</p>
-    
+
     <div class="download-box">
       <div class="url-input-wrapper">
         <fa-icon [icon]="faLink" class="url-icon"></fa-icon>
-        <input 
-          type="text" 
-          placeholder="Enter URL to download..."
-          [(ngModel)]="url"
-        >
-        <button 
-          *ngIf="url" 
-          class="clear-btn" 
-          (click)="url = ''"
-          aria-label="Clear input"
-        >
+        <input type="text" placeholder="Enter URL to download..." [(ngModel)]="url">
+        <button *ngIf="url" class="clear-btn" (click)="url = ''" aria-label="Clear input">
           <fa-icon [icon]="faTimes"></fa-icon>
         </button>
       </div>
-      <button class="search-btn" (click)="download()">
+      <button class="search-btn" (click)="download()" [disabled]="isLoading">
         <fa-icon [icon]="faSearch"></fa-icon>
-        Search
+        {{ isLoading ? 'Searching...' : 'Search' }}
       </button>
     </div>
 
-    <div class="content-container" *ngIf="songContent">
-      <app-single-song-container [musicInfo]="songContent"></app-single-song-container>
-    </div>
-    <div class="content-container" *ngIf="playlistContent">
-      <app-playlist-container [playlistInfo]="playlistContent"></app-playlist-container>
+    <!-- Skeleton Loader -->
+    <app-content-skeleton-loader *ngIf="isLoading" [type]="loaderType" [animate]="true"
+      class="content-container"></app-content-skeleton-loader>
+
+    <!-- Actual Content -->
+    <div class="content-container" *ngIf="songContent || playlistContent">
+      <app-single-song-container *ngIf="songContent" [musicInfo]="songContent" />
+      <app-playlist-container *ngIf="playlistContent" [playlistInfo]="playlistContent" />
     </div>
 
     <div class="disclaimer-content">
       <fa-icon [icon]="faWarning"></fa-icon>
-      <p>Please ensure you have the right to download and use the content. Respect copyright laws and platform terms of service.</p>
+      <p>Please ensure you have the right to download and use the content. Respect copyright laws and platform terms of
+        service.</p>
     </div>
   </div>
-</main> 
+</main>

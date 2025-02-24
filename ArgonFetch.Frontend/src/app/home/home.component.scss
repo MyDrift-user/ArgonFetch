@@ -41,8 +41,8 @@ h1 {
 .download-box {
   display: flex;
   gap: 12px;
-  width: calc(100% - 32px);
-  max-width: 600px;
+  width: 100%;
+  max-width: 634px;
   margin: 0 auto;
 }
 
@@ -157,4 +157,6 @@ input:focus {
   }
 }
 
-/* ... rest of the styles from app.component.css ... */ 
+.when-content-arrives-spacing {
+  margin-top: 60px;
+}
