@@ -10,8 +10,8 @@ namespace ArgonFetch.Application.Services
             {
                 case Platform.YOUTUBE:
                     var uri = new Uri(queryUrl);
-                    var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
-                    string listId = query.Get("list");
+                    var url_parms = System.Web.HttpUtility.ParseQueryString(uri.Query);
+                    string listId = url_parms.Get("list"); // search list in 
 
                     if (!string.IsNullOrEmpty(listId))
                     {
