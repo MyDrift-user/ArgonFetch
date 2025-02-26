@@ -9,7 +9,7 @@
   A powerful tool for downloading videos, music, and other media from various online sources.
 </p>
 <p align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=Pianonic.ArgonFetch" alt="visitors">
+  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FPianonic%2FArgonFetch&count_bg=%238A2BE2&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false" alt="visitors">
 </p>
 
 ---
