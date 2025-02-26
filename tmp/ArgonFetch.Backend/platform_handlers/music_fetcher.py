@@ -22,6 +22,7 @@ import os
 
 async def fetch_song(query_url: str) -> MusicInformation:
     platform = await platform_identifyer.identify(query_url)
+    audio_content_type = await content_type_identifyer.identify(query_url, platform)
 
     if platform is Platform.SPOTIFY:
         return await ddl_retrievers.spotify_ddl_retriever.get_streaming_url(query_url)
@@ -62,8 +63,7 @@ async def fetch_song(query_url: str) -> MusicInformation:
         else:
             parsed_url = urlparse(query_url)
             song_name = os.path.basename(parsed_url.path)
-            
-            return MusicInformation(query_url, song_name, "unkown", 'https://cdn.pixabay.com/photo/2018/02/12/16/35/phonograph-record-3148686_640.jpg')
+            return MusicInformation(query_url, song_name, "unknown", 'https://cdn.pixabay.com/photo/2018/02/12/16/35/phonograph-record-3148686_640.jpg')
         
     else:
         return await ddl_retrievers.universal_ddl_retriever.get_streaming_url(query_url)

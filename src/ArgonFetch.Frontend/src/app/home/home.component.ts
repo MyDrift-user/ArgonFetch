@@ -23,7 +23,7 @@ import { ContentSkeletonLoaderComponent } from "../content-skeleton-loader/conte
     PlaylistContainerComponent,
     SingleSongContainerComponent,
     ContentSkeletonLoaderComponent
-]
+  ]
 })
 export class HomeComponent {
   faLink = faLink;
@@ -58,7 +58,7 @@ export class HomeComponent {
     // Reset previous content
     this.songContent = undefined;
     this.playlistContent = undefined;
-    
+
     // Show loader
     this.isLoading = true;
 

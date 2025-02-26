@@ -4,7 +4,7 @@ from models.music_information import MusicInformation
 async def get_streaming_url(url) -> MusicInformation:
     
     ydl_opts = {
-        'format': 'bestaudio/best',
+        'format': 'best',
         'quiet': True,
     }
 
