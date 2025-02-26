@@ -164,3 +164,28 @@
   font-size: 0.75rem;
   color: var(--text-tertiary);
 }
+
+/* Add these styles to your existing SCSS file */
+
+.download-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.download-speed {
+  font-weight: 500;
+}
+
+.download-eta {
+  text-align: right;
+}
+
+/* Make sure the progress container has enough margin to accommodate the stats */
+.download-progress-container {
+  margin-top: 8px;
+  margin-bottom: 2px;
+}

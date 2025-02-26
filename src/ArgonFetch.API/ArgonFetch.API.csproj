@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+	<PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ArgonFetch.Application\ArgonFetch.Application.csproj" />
   </ItemGroup>
 
 </Project>
