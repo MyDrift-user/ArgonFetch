@@ -1,21 +1,21 @@
-﻿using MediatR;
+﻿using ArgonFetch.Application.Dtos;
+using MediatR;
 
 namespace ArgonFetch.Application.Queries
 {
-    public class GetPlaylistQuery : IRequest
+    public class GetPlaylistQuery : IRequest<PlaylistInformationDto>
     {
-        public GetPlaylistQuery()
+        public GetPlaylistQuery(string query)
         {
+            Query = query;
         }
+
+        public string Query { get; set; }
     }
 
-    public class GetPlaylistQueryHandler : IRequestHandler<GetPlaylistQuery>
+    public class GetPlaylistQueryHandler : IRequestHandler<GetPlaylistQuery, PlaylistInformationDto>
     {
-        public GetPlaylistQueryHandler()
-        {
-        }
-
-        public Task Handle(GetPlaylistQuery request, CancellationToken cancellationToken)
+        public async Task<PlaylistInformationDto> Handle(GetPlaylistQuery request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

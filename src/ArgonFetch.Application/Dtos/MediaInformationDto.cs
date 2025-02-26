@@ -2,7 +2,7 @@
 {
     public class MediaInformationDto
     {
-        public required string InputUrl { get; set; }
+        public required string RequestedUrl { get; set; }
         public required string StreamingUrl { get; set; }
         public required string CoverUrl { get; set; }
         public required string Title { get; set; }
