@@ -9,7 +9,7 @@
   A powerful tool for downloading videos, music, and other media from various online sources.
 </p>
 <p align="center">
-  <img src="https://shields.io/badge/dynamic/json?color=a453ef&label=Visitors&query=value&url=https://api.countapi.xyz/hit/your-unique-key" alt="Visitors">
+  <img src="https://shields.io/badge/dynamic/json?color=a453ef&label=Visitors&query=value&url=https://api.countapi.xyz/hit/Pianonic-ArgonFetch" alt="Visitors">
 </p>
 
 ---
