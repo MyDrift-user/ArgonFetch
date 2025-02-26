@@ -12,8 +12,6 @@
   <img src="https://visitor-badge.laobi.icu/badge?page_id=Pianonic.ArgonFetch" alt="visitors">
 </p>
 
-![Visitors](https://img.shields.io/github/watchers/Pianonic/ArgonFetch?style=social)
-
 ---
 
 ## 🚀 Features
