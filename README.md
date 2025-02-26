@@ -8,6 +8,9 @@
   <strong>ArgonFetch is Yet Another Media Downloader.</strong>  
   A powerful tool for downloading videos, music, and other media from various online sources.
 </p>
+<p align="center">
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=Pianonic.ArgonFetch" alt="visitors">
+</p>
 
 ---
 
