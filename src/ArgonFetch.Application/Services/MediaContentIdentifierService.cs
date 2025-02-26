@@ -1,58 +1,67 @@
 ﻿using ArgonFetch.Application.Enums;
+using ArgonFetch.Application.Exceptions;
 
 namespace ArgonFetch.Application.Services
 {
     public class MediaContentIdentifierService
     {
-        public async Task<ContentType> IdentifyContent(string queryUrl, Platform platform)
+        public static async Task<ContentType> IdentifyContent(string query, Platform platform)
         {
             switch (platform)
             {
-                case Platform.YOUTUBE:
-                    var uri = new Uri(queryUrl);
+                case Platform.SearchTerm:
+                    return ContentType.SearchTerm;
+
+                case Platform.YouTube:
+                    var uri = new Uri(query);
                     var url_parms = System.Web.HttpUtility.ParseQueryString(uri.Query);
-                    string listId = url_parms.Get("list"); // search list in 
+                    string listId = url_parms.Get("list"); // search for list property in url
 
                     if (!string.IsNullOrEmpty(listId))
+                        return listId.StartsWith("RD") ? ContentType.YouTubeRadio : ContentType.Playlist;
+
+                    return ContentType.Media;
+
+                case Platform.Spotify:
+                    var spotifyPathSegments = new Uri(query).AbsolutePath.Trim('/').Split('/');
+                    if (spotifyPathSegments.Contains("playlist"))
+                        return ContentType.Playlist;
+                    else if (spotifyPathSegments.Contains("album"))
+                        return ContentType.SpotifyAlbum;
+                    else if (spotifyPathSegments.Contains("track"))
+                        return ContentType.Media;
+                    else
+                        throw new UnknownContentTypeException();
+
+                case Platform.SoundCloud:
+                    var soundCloudPathSegments = new Uri(query).AbsolutePath.Trim('/').Split('/');
+                    return soundCloudPathSegments.Contains("sets") ? ContentType.Playlist : ContentType.Media;
+
+                case Platform.TikTok:
+                    return ContentType.Media;
+
+                case Platform.Unknown:
+                    using (var httpClient = new HttpClient())
                     {
-                        return listId.StartsWith("RD") ? ContentType.RADIO : ContentType.PLAYLIST;
+                        var response = await httpClient.GetAsync(query);
+                        response.EnsureSuccessStatusCode();
+
+                        var contentType = response.Content.Headers.ContentType?.MediaType;
+
+                        return (contentType != null && (contentType.Contains("audio") || contentType.Contains("video")))
+                            ? ContentType.Media
+                            : ContentType.Url;
                     }
-                    return ContentType.SINGLE_SONG;
-
-                case Platform.SOUND_CLOUD:
-                    var soundCloudPathSegments = new Uri(queryUrl).AbsolutePath.Trim('/').Split('/');
-                    return soundCloudPathSegments.Contains("sets") ? ContentType.PLAYLIST : ContentType.SINGLE_SONG;
-
-                case Platform.SPOTIFY:
-                    var spotifyPathSegments = new Uri(queryUrl).AbsolutePath.Trim('/').Split('/');
-                    if (spotifyPathSegments.Contains("playlist")) return ContentType.PLAYLIST;
-                    if (spotifyPathSegments.Contains("album")) return ContentType.ALBUM;
-                    if (spotifyPathSegments.Contains("track")) return ContentType.SINGLE_SONG;
-                    return ContentType.NOT_SUPPORTED;
-
-                // case Platform.ANYTHING_ELSE:
-                //
-                //    var response = await _httpClient.GetAsync(queryUrl);
-                //    response.EnsureSuccessStatusCode();
-
-                //    var contentType = response.Content.Headers.ContentType?.MediaType;
-
-                //    return (contentType != null && (contentType.Contains("audio") || contentType.Contains("video")))
-                //        ? ContentType.SINGLE_SONG
-                //        : ContentType.YT_DLP;
-                //}
-
-                // TODO
-
-                case Platform.NO_URL:
-                    return ContentType.QUERY;
-
-                case Platform.TIK_TOK:
-                    return ContentType.SINGLE_SONG;
 
                 default:
-                    return ContentType.NOT_SUPPORTED;
+                    throw new UnknownContentTypeException();
             }
+        }
+
+        public static async Task<ContentType> IdentifyContent(string query)
+        {
+            var platform = PlatformIdentifierService.IdentifyPlatform(query);
+            return await IdentifyContent(query, platform);
         }
     }
 }

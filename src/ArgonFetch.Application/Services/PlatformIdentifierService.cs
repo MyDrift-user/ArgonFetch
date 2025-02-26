@@ -2,15 +2,10 @@
 
 namespace ArgonFetch.Application.Services
 {
-    public class PlatformIdentifierService
+    public static class PlatformIdentifierService
     {
-        public Platform IdentifyPlatform(string queryUrl)
+        public static Platform IdentifyPlatform(string queryUrl)
         {
-            if (string.IsNullOrWhiteSpace(queryUrl))
-            {
-                return Platform.NO_URL;
-            }
-
             Uri uri;
             try
             {
@@ -18,7 +13,7 @@ namespace ArgonFetch.Application.Services
             }
             catch (UriFormatException)
             {
-                return Platform.NO_URL;
+                return Platform.SearchTerm;
             }
 
             string hostname = uri.Host.ToLower();
@@ -26,15 +21,15 @@ namespace ArgonFetch.Application.Services
             switch (hostname)
             {
                 case string h when h.Contains("spotify"):
-                    return Platform.SPOTIFY;
+                    return Platform.Spotify;
                 case string h when h.Contains("tiktok"):
-                    return Platform.TIK_TOK;
+                    return Platform.TikTok;
                 case string h when h.Contains("youtube") || h.Contains("youtu"):
-                    return Platform.YOUTUBE;
+                    return Platform.YouTube;
                 case string h when h.Contains("soundcloud"):
-                    return Platform.SOUND_CLOUD;
+                    return Platform.SoundCloud;
                 default:
-                    return Platform.ANYTHING_ELSE;
+                    return Platform.Unknown;
             }
         }
     }
