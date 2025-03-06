@@ -27,6 +27,9 @@
 
 ## 📦 Installation
 
+> [!WARNING]  
+> This does not work yet.
+
 ```sh
 # Clone the repository
 git clone https://github.com/Pianonic/ArgonFetch.git
