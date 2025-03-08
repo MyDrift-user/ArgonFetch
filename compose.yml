@@ -8,18 +8,7 @@ services:
     env_file:
       - .env
     ports:
-      - 8080:8080
-    networks:
-      - ArgonFetch-default
-  
-  argonfetch-proxy:
-    build:
-      context: ./services/ArgonFetch.Proxy
-      dockerfile: Dockerfile
-    container_name: argonfetch-proxy
-    restart: unless-stopped
-    ports:
-      - "4442:4442"
+      - "8080:8080"
     networks:
       - ArgonFetch-default
 
