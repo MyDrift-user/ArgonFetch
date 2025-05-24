@@ -62,9 +62,7 @@ jobs:
           cache-from: |
             type=registry,ref=ghcr.io/${{ steps.lowercase.outputs.repo_lower }}:buildcache
             type=gha
-          cache-to: |
-            type=registry,ref=ghcr.io/${{ steps.lowercase.outputs.repo_lower }}:buildcache,mode=max
-            type=inline
+          cache-to: type=registry,ref=ghcr.io/${{ steps.lowercase.outputs.repo_lower }}:buildcache,mode=max
           platforms: linux/amd64
           tags: ${{ steps.semver_tags.outputs.tags }}
           provenance: false
